@@ -1,0 +1,27 @@
+rock_manifest = {
+   doc = {
+      ["README.md"] = "34d157433330737dc27369c2235c562a"
+   },
+   ["kit-scm-2.rockspec"] = "25074ed17064f33a19e085f0343824cd",
+   lua = {
+      kit = {
+         ["1"] = {
+            ["10.lua"] = "6938fbb359dc360c73d99987b3be43ef",
+            ["5"] = {
+               ["errno.lua"] = "d4ca4809a5e0f7268f040e681ffdaa50",
+               ["fiber.lua"] = "83bab66ddbe089bd8e6da2f88515cb83",
+               ["init.lua"] = "0efeb753808cbf194dfa0a34a94efd62",
+               ["socket.lua"] = "7e2b227931fbb0c930630866f2d36980"
+            },
+            ["6+.lua"] = "fb79b7566a7bed06121850cc41fb34c0",
+            ["6.lua"] = "08f4defb20ed9594ebef45200ad546c6",
+            ["7.lua"] = "dd4379a75e52704b1e07e0bae5fc6e1e",
+            ["9.lua"] = "375eb8513f267935904a8fc04a155956"
+         },
+         ["1.lua"] = "d03a1e23e7614e3017cdb7878c3ecdf4",
+         ["2.lua"] = "b1205ae799954869624a671bdd1b8547",
+         ["loc.lua"] = "f57c649c7b9962c27f7a4ca608b4e883"
+      },
+      ["kit.lua"] = "dc4580fa5408208f0df28e1292557622"
+   }
+}

@@ -1,0 +1,9 @@
+rock_manifest = {
+   doc = {
+      ["README.md"] = "e10344d2518c8b024f5d12a01fd624f9"
+   },
+   lua = {
+      ["moonwalker.lua"] = "ba890a04b2e72c92fd13046ac0cfc931"
+   },
+   ["moonwalker-scm-1.rockspec"] = "f3f85de20bf24a7c6c742829a762b95e"
+}

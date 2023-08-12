@@ -1,0 +1,12 @@
+rock_manifest = {
+   ["config-scm-5.rockspec"] = "65976cec8b293944adb30811c84e8df7",
+   doc = {
+      ["README.md"] = "9fc77aabade76022ef27d6a85c6bba6f"
+   },
+   lua = {
+      config = {
+         ["etcd.lua"] = "47ff9d22253c47a360c33f0c14e84052"
+      },
+      ["config.lua"] = "12ee257719ca6bbf53396269f28339b4"
+   }
+}

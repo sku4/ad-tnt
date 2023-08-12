@@ -1,0 +1,546 @@
+commands = {}
+dependencies = {
+   base58 = {
+      ["scm-1"] = {
+         {
+            constraints = {
+               {
+                  op = "~>",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         }
+      }
+   },
+   config = {
+      ["scm-5"] = {
+         {
+            constraints = {
+               {
+                  op = ">=",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         }
+      }
+   },
+   ctx = {
+      ["scm-1"] = {
+         {
+            constraints = {
+               {
+                  op = ">=",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         },
+         {
+            constraints = {
+               {
+                  op = ">=",
+                  version = {
+                     0, string = "0"
+                  }
+               }
+            },
+            name = "base58"
+         },
+         {
+            constraints = {
+               {
+                  op = ">=",
+                  version = {
+                     0, string = "0"
+                  }
+               }
+            },
+            name = "obj"
+         }
+      }
+   },
+   inspect = {
+      ["3.1.3-0"] = {
+         {
+            constraints = {
+               {
+                  op = ">=",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         }
+      }
+   },
+   kit = {
+      ["scm-2"] = {
+         {
+            constraints = {
+               {
+                  op = ">=",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         }
+      }
+   },
+   moonwalker = {
+      ["scm-1"] = {
+         {
+            constraints = {
+               {
+                  op = ">=",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         }
+      }
+   },
+   ["net-graphite"] = {
+      ["scm-1"] = {}
+   },
+   obj = {
+      ["scm-1"] = {
+         {
+            constraints = {
+               {
+                  op = ">=",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         }
+      }
+   },
+   ["package-reload"] = {
+      ["scm-1"] = {
+         {
+            constraints = {
+               {
+                  op = "~>",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         }
+      }
+   },
+   queue = {
+      ["scm-1"] = {
+         {
+            constraints = {
+               {
+                  op = ">=",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         }
+      }
+   },
+   spacer = {
+      ["scm-3"] = {
+         {
+            constraints = {
+               {
+                  op = ">=",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         },
+         {
+            constraints = {
+               {
+                  op = ">=",
+                  version = {
+                     3, 1, 0, revision = 1, string = "3.1.0-1"
+                  }
+               }
+            },
+            name = "inspect"
+         },
+         {
+            constraints = {},
+            name = "moonwalker"
+         }
+      }
+   },
+   xqueue = {
+      ["scm-5"] = {
+         {
+            constraints = {
+               {
+                  op = "~>",
+                  version = {
+                     5, 1, string = "5.1"
+                  }
+               }
+            },
+            name = "lua"
+         }
+      }
+   }
+}
+modules = {
+   base58 = {
+      "base58/scm-1"
+   },
+   config = {
+      "config/scm-5"
+   },
+   ["config.etcd"] = {
+      "config/scm-5"
+   },
+   ctx = {
+      "ctx/scm-1"
+   },
+   ["ctx.log"] = {
+      "ctx/scm-1"
+   },
+   inspect = {
+      "inspect/3.1.3-0"
+   },
+   kit = {
+      "kit/scm-2"
+   },
+   ["kit.1"] = {
+      "kit/scm-2"
+   },
+   ["kit.1.10"] = {
+      "kit/scm-2"
+   },
+   ["kit.1.5.errno"] = {
+      "kit/scm-2"
+   },
+   ["kit.1.5.fiber"] = {
+      "kit/scm-2"
+   },
+   ["kit.1.5.init"] = {
+      "kit/scm-2"
+   },
+   ["kit.1.5.socket"] = {
+      "kit/scm-2"
+   },
+   ["kit.1.6"] = {
+      "kit/scm-2"
+   },
+   ["kit.1.6+"] = {
+      "kit/scm-2"
+   },
+   ["kit.1.7"] = {
+      "kit/scm-2"
+   },
+   ["kit.1.9"] = {
+      "kit/scm-2"
+   },
+   ["kit.2"] = {
+      "kit/scm-2"
+   },
+   ["kit.loc"] = {
+      "kit/scm-2"
+   },
+   libbase58 = {
+      "base58/scm-1"
+   },
+   moonwalker = {
+      "moonwalker/scm-1"
+   },
+   ["net.graphite"] = {
+      "net-graphite/scm-1"
+   },
+   obj = {
+      "obj/scm-1"
+   },
+   ["package.reload"] = {
+      "package-reload/scm-1"
+   },
+   ["queue.abstract"] = {
+      "queue/scm-1"
+   },
+   ["queue.abstract.driver.fifo"] = {
+      "queue/scm-1"
+   },
+   ["queue.abstract.driver.fifottl"] = {
+      "queue/scm-1"
+   },
+   ["queue.abstract.driver.limfifottl"] = {
+      "queue/scm-1"
+   },
+   ["queue.abstract.driver.utube"] = {
+      "queue/scm-1"
+   },
+   ["queue.abstract.driver.utubettl"] = {
+      "queue/scm-1"
+   },
+   ["queue.abstract.queue_session"] = {
+      "queue/scm-1"
+   },
+   ["queue.abstract.queue_state"] = {
+      "queue/scm-1"
+   },
+   ["queue.abstract.state"] = {
+      "queue/scm-1"
+   },
+   ["queue.compat"] = {
+      "queue/scm-1"
+   },
+   ["queue.init"] = {
+      "queue/scm-1"
+   },
+   ["queue.util"] = {
+      "queue/scm-1"
+   },
+   ["queue.version"] = {
+      "queue/scm-1"
+   },
+   ["spacer.compat"] = {
+      "spacer/scm-3"
+   },
+   ["spacer.fileio"] = {
+      "spacer/scm-3"
+   },
+   ["spacer.init"] = {
+      "spacer/scm-3"
+   },
+   ["spacer.inspect"] = {
+      "spacer/scm-3"
+   },
+   ["spacer.migration"] = {
+      "spacer/scm-3"
+   },
+   ["spacer.ops"] = {
+      "spacer/scm-3"
+   },
+   ["spacer.stmt"] = {
+      "spacer/scm-3"
+   },
+   ["spacer.transformations"] = {
+      "spacer/scm-3"
+   },
+   ["spacer.util"] = {
+      "spacer/scm-3"
+   },
+   ["spacer.version"] = {
+      "spacer/scm-3"
+   },
+   urandom = {
+      "ctx/scm-1"
+   },
+   xqueue = {
+      "xqueue/scm-5"
+   }
+}
+repository = {
+   base58 = {
+      ["scm-1"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {},
+            modules = {
+               base58 = "base58.lua",
+               libbase58 = "libbase58.so"
+            }
+         }
+      }
+   },
+   config = {
+      ["scm-5"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {},
+            modules = {
+               config = "config.lua",
+               ["config.etcd"] = "config/etcd.lua"
+            }
+         }
+      }
+   },
+   ctx = {
+      ["scm-1"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {
+               base58 = "scm-1",
+               obj = "scm-1"
+            },
+            modules = {
+               ctx = "ctx.lua",
+               ["ctx.log"] = "ctx/log.lua",
+               urandom = "urandom.lua"
+            }
+         }
+      }
+   },
+   inspect = {
+      ["3.1.3-0"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {},
+            modules = {
+               inspect = "inspect.lua"
+            }
+         }
+      }
+   },
+   kit = {
+      ["scm-2"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {},
+            modules = {
+               kit = "kit.lua",
+               ["kit.1"] = "kit/1.lua",
+               ["kit.1.10"] = "kit/1/10.lua",
+               ["kit.1.5.errno"] = "kit/1/5/errno.lua",
+               ["kit.1.5.fiber"] = "kit/1/5/fiber.lua",
+               ["kit.1.5.init"] = "kit/1/5/init.lua",
+               ["kit.1.5.socket"] = "kit/1/5/socket.lua",
+               ["kit.1.6"] = "kit/1/6.lua",
+               ["kit.1.6+"] = "kit/1/6+.lua",
+               ["kit.1.7"] = "kit/1/7.lua",
+               ["kit.1.9"] = "kit/1/9.lua",
+               ["kit.2"] = "kit/2.lua",
+               ["kit.loc"] = "kit/loc.lua"
+            }
+         }
+      }
+   },
+   moonwalker = {
+      ["scm-1"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {},
+            modules = {
+               moonwalker = "moonwalker.lua"
+            }
+         }
+      }
+   },
+   ["net-graphite"] = {
+      ["scm-1"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {},
+            modules = {
+               ["net.graphite"] = "net/graphite.lua"
+            }
+         }
+      }
+   },
+   obj = {
+      ["scm-1"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {},
+            modules = {
+               obj = "obj.lua"
+            }
+         }
+      }
+   },
+   ["package-reload"] = {
+      ["scm-1"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {},
+            modules = {
+               ["package.reload"] = "package/reload.lua"
+            }
+         }
+      }
+   },
+   queue = {
+      ["scm-1"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {},
+            modules = {
+               ["queue.abstract"] = "queue/abstract.lua",
+               ["queue.abstract.driver.fifo"] = "queue/abstract/driver/fifo.lua",
+               ["queue.abstract.driver.fifottl"] = "queue/abstract/driver/fifottl.lua",
+               ["queue.abstract.driver.limfifottl"] = "queue/abstract/driver/limfifottl.lua",
+               ["queue.abstract.driver.utube"] = "queue/abstract/driver/utube.lua",
+               ["queue.abstract.driver.utubettl"] = "queue/abstract/driver/utubettl.lua",
+               ["queue.abstract.queue_session"] = "queue/abstract/queue_session.lua",
+               ["queue.abstract.queue_state"] = "queue/abstract/queue_state.lua",
+               ["queue.abstract.state"] = "queue/abstract/state.lua",
+               ["queue.compat"] = "queue/compat.lua",
+               ["queue.init"] = "queue/init.lua",
+               ["queue.util"] = "queue/util.lua",
+               ["queue.version"] = "queue/version.lua"
+            }
+         }
+      }
+   },
+   spacer = {
+      ["scm-3"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {
+               inspect = "3.1.3-0",
+               moonwalker = "scm-1"
+            },
+            modules = {
+               ["spacer.compat"] = "spacer/compat.lua",
+               ["spacer.fileio"] = "spacer/fileio.lua",
+               ["spacer.init"] = "spacer/init.lua",
+               ["spacer.inspect"] = "spacer/inspect.lua",
+               ["spacer.migration"] = "spacer/migration.lua",
+               ["spacer.ops"] = "spacer/ops.lua",
+               ["spacer.stmt"] = "spacer/stmt.lua",
+               ["spacer.transformations"] = "spacer/transformations.lua",
+               ["spacer.util"] = "spacer/util.lua",
+               ["spacer.version"] = "spacer/version.lua"
+            }
+         }
+      }
+   },
+   xqueue = {
+      ["scm-5"] = {
+         {
+            arch = "installed",
+            commands = {},
+            dependencies = {},
+            modules = {
+               xqueue = "xqueue.lua"
+            }
+         }
+      }
+   }
+}

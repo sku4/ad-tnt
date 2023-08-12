@@ -1,0 +1,6 @@
+rock_manifest = {
+   lua = {
+      ["obj.lua"] = "c2a482f62334efa19540aa6a652b5619"
+   },
+   ["obj-scm-1.rockspec"] = "b88e108213272cafb73d619ab43cba4d"
+}

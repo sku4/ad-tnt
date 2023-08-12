@@ -1,0 +1,9 @@
+rock_manifest = {
+   doc = {
+      ["README.md"] = "c2dbf4e80ebc4516080967f6d3d90d4e"
+   },
+   lua = {
+      ["xqueue.lua"] = "0606f38c25b92d4137b4a493b49d012a"
+   },
+   ["xqueue-scm-5.rockspec"] = "e5cf80f9ee192d924acaaf36d0b4750c"
+}

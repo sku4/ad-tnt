@@ -1,0 +1,11 @@
+rock_manifest = {
+   doc = {
+      ["README.md"] = "1b846e9b62c0db7f42c21f95db176d7b"
+   },
+   lua = {
+      package = {
+         ["reload.lua"] = "a197a637e82e7960a4d495084e89a05d"
+      }
+   },
+   ["package-reload-scm-1.rockspec"] = "333923dd7c77f6da5dc827b807a4da83"
+}

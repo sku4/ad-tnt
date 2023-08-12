@@ -1,0 +1,9 @@
+rock_manifest = {
+   ["base58-scm-1.rockspec"] = "c117af12a785f47bb13e790b1a1bb7b2",
+   lib = {
+      ["libbase58.so"] = "fd50cc3c62228d4dfb88a07d4b346bc7"
+   },
+   lua = {
+      ["base58.lua"] = "c5a02c21a30a6e680df55d0ad8901216"
+   }
+}

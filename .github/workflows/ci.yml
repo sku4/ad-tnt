@@ -1,0 +1,10 @@
+name: ci-cd
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  ad:
+    uses: sku4/ad-run/.github/workflows/ad.yml@master
+    secrets: inherit

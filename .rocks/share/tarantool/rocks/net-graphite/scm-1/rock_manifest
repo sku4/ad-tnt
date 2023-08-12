@@ -1,0 +1,11 @@
+rock_manifest = {
+   doc = {
+      ["README.md"] = "2bacf0063da6817e2d87b968a587d280"
+   },
+   lua = {
+      net = {
+         ["graphite.lua"] = "4440d53b6b1536eea7b3d0cff55d07c2"
+      }
+   },
+   ["net-graphite-scm-1.rockspec"] = "cbb1f1605b6041fb863e03b35e95f797"
+}

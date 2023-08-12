@@ -1,0 +1,28 @@
+rock_manifest = {
+   doc = {
+      LICENSE = "68fb615285f002b61f21c0b287b27ddc",
+      ["README.md"] = "80a7e55a7c6a484af5345aacd8fab890"
+   },
+   lua = {
+      queue = {
+         abstract = {
+            driver = {
+               ["fifo.lua"] = "b573c6badb98dcbc1d2a84918b3d327f",
+               ["fifottl.lua"] = "b6c57578f4186407d5f2a657141a5953",
+               ["limfifottl.lua"] = "3f22faef99e6bf0b2b88ac08d56c93c0",
+               ["utube.lua"] = "6f803a5e6211a2e4fe7a3dde08e38315",
+               ["utubettl.lua"] = "7e7072edda68c60bcbbfc46e91663a31"
+            },
+            ["queue_session.lua"] = "6295068e763d3891e37323e06945c8f2",
+            ["queue_state.lua"] = "1de5509938c4c77ec2ea4d1d07ca1c93",
+            ["state.lua"] = "f9b7709b97586e526318514ee76d3ff2"
+         },
+         ["abstract.lua"] = "a41e1e2b2498ab940116e35e1cdd9ed2",
+         ["compat.lua"] = "b1ca67066adedcec64552a7274aa5829",
+         ["init.lua"] = "5bb46362c42e14cf080b1ef346a713d0",
+         ["util.lua"] = "11993f30e6c6c312e21fe46e1137fbbe",
+         ["version.lua"] = "e9455a8133cce1b981b4a0d1c849cddb"
+      }
+   },
+   ["queue-scm-1.rockspec"] = "85df33efbd825a9b6f018b63a2d86b59"
+}

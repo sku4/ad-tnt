@@ -1,0 +1,13 @@
+rock_manifest = {
+   ["ctx-scm-1.rockspec"] = "bc78f09ff76e15618d9f95afb8d4d272",
+   doc = {
+      ["README.md"] = "7a4f08a5a9a0464b71816f4e0ec48858"
+   },
+   lua = {
+      ctx = {
+         ["log.lua"] = "71c75a2358d4b4fd3ebed837733b3966"
+      },
+      ["ctx.lua"] = "2005c9bc7435889ab1b7f2284cf584fe",
+      ["urandom.lua"] = "6d6d193562c46566df18bcf2c677b78b"
+   }
+}
