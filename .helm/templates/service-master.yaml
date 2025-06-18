@@ -1,0 +1,17 @@
+{{- if .Values.serviceMaster.create -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "helm.fullname" . }}-master
+  labels:
+    {{- include "helm.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.serviceMaster.type }}
+  ports:
+    - port: {{ .Values.serviceMaster.externalPort }}
+      targetPort: {{ .Values.serviceMaster.internalPort }}
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "helm.selectorLabels" . | nindent 4 }}
+{{- end }}

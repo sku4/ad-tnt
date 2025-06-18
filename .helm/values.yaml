@@ -1,13 +1,17 @@
 replicaCount: 1
-image:
-  repository: alice-checklist
+imageMaster:
+  repository: ad-tnt
+  pullPolicy: IfNotPresent
+  tag: ""
+imageReplica:
+  repository: ad-tnt
   pullPolicy: IfNotPresent
   tag: ""
 
 imagePullSecrets:
   - name: regcred
-nameOverride: "alice-checklist"
-fullnameOverride: "alice-checklist"
+nameOverride: "ad-tnt"
+fullnameOverride: "ad-tnt"
 
 serviceAccount:
   create: true
@@ -17,7 +21,7 @@ serviceAccount:
 
 podAnnotations: {}
 podLabels:
-  app: alice-checklist
+  app: ad-tnt
 
 podSecurityContext: {}
 securityContext: {}
@@ -28,29 +32,17 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-service:
+serviceMaster:
   create: true
   type: ClusterIP
-  externalPort: 80
-  internalPort: 8000
+  externalPort: 3301
+  internalPort: 3301
 
-ingress:
-  enabled: true
-  className: "nginx"
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
-  hosts:
-    - host: alice.gohome.run
-      paths:
-        - path: /
-          pathType: ImplementationSpecific
-  tls: []
-#    - hosts:
-#        - alice.gohome.run
-#      secretName: alice-gohome-run-tls
-  email: skubach@tut.by
+serviceReplica:
+  create: true
+  type: ClusterIP
+  externalPort: 3302
+  internalPort: 3301
 
 resources: {}
   # limits:
@@ -76,25 +68,41 @@ strategy:
   type: RollingUpdate
 
 volumes:
-  - name: googlekeep
-    secret:
-      secretName: googlekeep
-  - name: db
+  - name: ad-tnt-storage
     persistentVolumeClaim:
-      claimName: boltdb
+      claimName: ad-tnt
 # - name: foo
 #   secret:
 #     secretName: mysecret
 #     optional: false
 
-volumeMounts:
-  - name: db
-    mountPath: /root/db
-  - name: googlekeep
-    mountPath: /root/configs/googlekeep
-# - name: foo
-#   mountPath: "/etc/foo"
-#   readOnly: true
+volumeMountsMaster:
+  - name: ad-tnt-storage
+    mountPath: /usr/share/tarantool/ad/master
+    subPath: master
+
+volumeMountsReplica:
+  - name: ad-tnt-storage
+    mountPath: /usr/share/tarantool/ad/replica
+    subPath: replica
+
+envMaster:
+  - name: TT_INSTANCE_NAME
+    value: "master"
+  - name: TT_INSTANCE_PORT
+    value: "3301"
+  - name: TT_REPLICATION
+    value: "ad-tnt-master.ad-prod.svc.cluster.local,ad-tnt-replica.ad-prod.svc.cluster.local"
+
+envReplica:
+  - name: TT_INSTANCE_NAME
+    value: "replica"
+  - name: TT_INSTANCE_PORT
+    value: "3301"
+  - name: TT_REPLICATION
+    value: "ad-tnt-master.ad-prod.svc.cluster.local,ad-tnt-replica.ad-prod.svc.cluster.local"
+  - name: TT_INSTANCE_RO
+    value: "true"
 
 nodeSelector: {}
 
@@ -103,13 +111,12 @@ tolerations: []
 affinity: {}
 
 persistentVolume:
-  path: /home/skubach/alice-checklist/db
+  path: /home/skubach/ad/storage
   nodeAffinity:
     hostname:
       - node1.internal
-  storage: 5Mi
+  storage: 500Mi
 
 storageClass:
   create: true
-certManager:
-  enabled: false
+  name: ad-tnt-storage

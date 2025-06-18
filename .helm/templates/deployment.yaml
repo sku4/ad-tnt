@@ -35,16 +35,16 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       containers:
-        - name: {{ .Chart.Name }}
+        - name: {{ .Chart.Name }}-master
           {{- with .Values.securityContext }}
           securityContext:
             {{- toYaml . | nindent 12 }}
           {{- end }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          image: "{{ .Values.imageMaster.repository }}:{{ .Values.imageMaster.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.imageMaster.pullPolicy }}
           ports:
             - name: http
-              containerPort: {{ .Values.service.internalPort }}
+              containerPort: {{ .Values.serviceMaster.internalPort }}
               protocol: TCP
           {{- with .Values.livenessProbe }}
           livenessProbe:
@@ -58,8 +58,43 @@ spec:
           resources:
             {{- toYaml . | nindent 12 }}
           {{- end }}
-          {{- with .Values.volumeMounts }}
+          {{- with .Values.volumeMountsMaster }}
           volumeMounts:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.envMaster }}
+          env:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+        - name: {{ .Chart.Name }}-replica
+          {{- with .Values.securityContext }}
+          securityContext:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          image: "{{ .Values.imageReplica.repository }}:{{ .Values.imageReplica.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.imageReplica.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.serviceReplica.internalPort }}
+              protocol: TCP
+          {{- with .Values.livenessProbe }}
+          livenessProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.readinessProbe }}
+          readinessProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.resources }}
+          resources:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.volumeMountsReplica }}
+          volumeMounts:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.envReplica }}
+          env:
             {{- toYaml . | nindent 12 }}
           {{- end }}
       {{- with .Values.volumes }}
