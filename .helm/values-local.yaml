@@ -2,11 +2,11 @@ replicaCount: 1
 imageMaster:
   repository: registry.digitalocean.com/sku4/repository
   pullPolicy: IfNotPresent
-  tag: ""
+  tag: "storage-96a1b63"
 imageReplica:
   repository: registry.digitalocean.com/sku4/repository
   pullPolicy: IfNotPresent
-  tag: ""
+  tag: "replica-96a1b63"
 
 imagePullSecrets:
   - name: regcred
@@ -42,7 +42,7 @@ serviceReplica:
   create: true
   type: ClusterIP
   externalPort: 3302
-  internalPort: 3301
+  internalPort: 3302
 
 resources: {}
   # limits:
@@ -92,15 +92,15 @@ envMaster:
   - name: TT_INSTANCE_PORT
     value: "3301"
   - name: TT_REPLICATION
-    value: "ad-tnt-master.ad-prod.svc.cluster.local,ad-tnt-replica.ad-prod.svc.cluster.local"
+    value: "ad-tnt-master:3301,ad-tnt-replica:3302"
 
 envReplica:
   - name: TT_INSTANCE_NAME
     value: "replica"
   - name: TT_INSTANCE_PORT
-    value: "3301"
+    value: "3302"
   - name: TT_REPLICATION
-    value: "ad-tnt-master.ad-prod.svc.cluster.local,ad-tnt-replica.ad-prod.svc.cluster.local"
+    value: "ad-tnt-master:3301,ad-tnt-replica:3302"
   - name: TT_INSTANCE_RO
     value: "true"
 
