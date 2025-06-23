@@ -1,12 +1,12 @@
 replicaCount: 1
 imageMaster:
-  repository: skubach/skubach
+  repository: registry.digitalocean.com/sku4/repository
   pullPolicy: IfNotPresent
-  tag: "f39684a4331"
+  tag: "storage-96a1b63"
 imageReplica:
-  repository: skubach/skubach
+  repository: registry.digitalocean.com/sku4/repository
   pullPolicy: IfNotPresent
-  tag: "f39684a4331"
+  tag: "replica-96a1b63"
 
 imagePullSecrets:
   - name: regcred
