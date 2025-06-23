@@ -1,12 +1,12 @@
 replicaCount: 1
 imageMaster:
-  repository: registry.digitalocean.com/sku4/repository
+  repository: skubach/skubach
   pullPolicy: IfNotPresent
-  tag: "storage-96a1b63"
+  tag: "f39684a4331"
 imageReplica:
-  repository: registry.digitalocean.com/sku4/repository
+  repository: skubach/skubach
   pullPolicy: IfNotPresent
-  tag: "replica-96a1b63"
+  tag: "f39684a4331"
 
 imagePullSecrets:
   - name: regcred
@@ -60,6 +60,12 @@ resources: {}
 #  httpGet:
 #    path: /
 #    port: http
+startupProbe:
+  exec:
+    command:
+      - tarantool_is_up
+  failureThreshold: 30
+  periodSeconds: 10
 
 strategy:
   rollingUpdate:
