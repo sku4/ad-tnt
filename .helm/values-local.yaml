@@ -1,0 +1,128 @@
+replicaCount: 1
+imageMaster:
+  repository: registry.digitalocean.com/sku4/repository
+  pullPolicy: IfNotPresent
+  tag: "storage-96a1b63"
+imageReplica:
+  repository: registry.digitalocean.com/sku4/repository
+  pullPolicy: IfNotPresent
+  tag: "replica-96a1b63"
+
+imagePullSecrets:
+  - name: regcred
+nameOverride: "ad-tnt"
+fullnameOverride: "ad-tnt"
+
+serviceAccount:
+  create: true
+  automount: true
+  annotations: {}
+  name: ""
+
+podAnnotations: {}
+podLabels:
+  app: ad-tnt
+
+podSecurityContext: {}
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+serviceMaster:
+  create: true
+  type: ClusterIP
+  externalPort: 3301
+  internalPort: 3301
+
+serviceReplica:
+  create: true
+  type: ClusterIP
+  externalPort: 3302
+  internalPort: 3302
+
+resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+#livenessProbe:
+#  httpGet:
+#    path: /
+#    port: http
+#readinessProbe:
+#  httpGet:
+#    path: /
+#    port: http
+startupProbe:
+  exec:
+    command:
+      - tarantool_is_up
+  failureThreshold: 30
+  periodSeconds: 10
+
+strategy:
+  rollingUpdate:
+    maxSurge: 1
+    maxUnavailable: 1
+  type: RollingUpdate
+
+volumes:
+  - name: ad-tnt-storage
+    persistentVolumeClaim:
+      claimName: ad-tnt
+# - name: foo
+#   secret:
+#     secretName: mysecret
+#     optional: false
+
+volumeMountsMaster:
+  - name: ad-tnt-storage
+    mountPath: /usr/share/tarantool/ad/master
+    subPath: master
+
+volumeMountsReplica:
+  - name: ad-tnt-storage
+    mountPath: /usr/share/tarantool/ad/replica
+    subPath: replica
+
+envMaster:
+  - name: TT_INSTANCE_NAME
+    value: "master"
+  - name: TT_INSTANCE_PORT
+    value: "3301"
+  - name: TT_REPLICATION
+    value: "ad-tnt-master:3301,ad-tnt-replica:3302"
+
+envReplica:
+  - name: TT_INSTANCE_NAME
+    value: "replica"
+  - name: TT_INSTANCE_PORT
+    value: "3302"
+  - name: TT_REPLICATION
+    value: "ad-tnt-master:3301,ad-tnt-replica:3302"
+  - name: TT_INSTANCE_RO
+    value: "true"
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+persistentVolume:
+  path: /mnt/storage
+  nodeAffinity:
+    hostname:
+      - multitest
+  storage: 500Mi
+
+storageClass:
+  create: true
+  name: ad-tnt-storage

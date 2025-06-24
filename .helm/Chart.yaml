@@ -1,0 +1,6 @@
+apiVersion: v2
+type: application
+name: ad-tnt
+version: 1.0.0
+appVersion: "1.0.0"
+description: Tarantool database with app server for saving ads and notifications data
