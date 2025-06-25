@@ -16,3 +16,8 @@ helm-install-local:
 
 helm-template:
 	helm template --name-template="ad-tnt" --namespace=ad-prod -f .helm/values-local.yaml .helm > .helm/helm.txt
+
+helm-package:
+	helm package .helm
+	mv ad-tnt*.tgz docs/charts
+	helm repo index docs/charts --url https://raw.githubusercontent.com/sku4/ad-tnt/refs/heads/master/docs/charts/
