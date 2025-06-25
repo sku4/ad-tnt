@@ -3,13 +3,13 @@ entries:
   ad-tnt:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-06-25T17:49:32.518496+03:00"
+    created: "2025-06-25T17:57:26.285457+03:00"
     description: Tarantool database with app server for saving ads and notifications
       data
-    digest: f39327df914da77be9603bb35f0f189c208f411af09e9945e0d5794fbcfab665
+    digest: ec7baa349836eff0cebe294358001179b3c8dd3d0c5d6cb0214c593b6391eeb3
     name: ad-tnt
     type: application
     urls:
     - https://raw.githubusercontent.com/sku4/ad-tnt/refs/heads/master/docs/charts/ad-tnt-1.0.0.tgz
     version: 1.0.0
-generated: "2025-06-25T17:49:32.517503+03:00"
+generated: "2025-06-25T17:57:26.283753+03:00"
