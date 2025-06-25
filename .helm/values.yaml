@@ -125,4 +125,4 @@ persistentVolume:
 
 storageClass:
   create: true
-  name: ad-tnt-storage
+  name: ad-tnt
